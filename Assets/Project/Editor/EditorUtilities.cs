@@ -16,12 +16,12 @@ namespace SafaProjects
             ActiveEditorTracker.sharedTracker.activeEditors[0].Repaint();
         }
         
-        [MenuItem("Tools/Reset Transform %r")]
-        static void ResetTransform()
+        [MenuItem("Tools/Reset Transform &r")]
+        private static void ResetTransform()
         {
-            GameObject[] selection = Selection.gameObjects;
+            var selection = Selection.gameObjects;
             if (selection.Length < 1) return;
-            Undo.RegisterCompleteObjectUndo(selection, "Zero Position");
+            
             foreach (GameObject go in selection)
             {
                 go.transform.localPosition = Vector3.zero;
